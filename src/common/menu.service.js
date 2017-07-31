@@ -26,6 +26,17 @@ function MenuService($http, ApiPath) {
       return response.data;
     });
   };
+  service.CheckNumber=function(v)
+  {
+  
+     
+   
+      return $http.get(ApiPath + '/menu_items/'+v+'.json').then(function (response) {
+        return true;
+    },function(response){
+       return false;
+    });
+  }
 
 }
 

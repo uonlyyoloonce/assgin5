@@ -2,10 +2,12 @@
       <legend>Registration</legend>
       <form name='regForm' novalidate>
 
-        <input type="text" name="firstName" placeholder="Pick a username"
+        <input type="text" name="firstname" placeholder="Pick a username"
           ng-model="reg.user.firstname"
+           minlength="4"
+          ng-maxlength="10"
           required>
-          {{ reg.user.username }}
+   
           <span
             ng-if="(regForm.username.$error.minlength || regForm.username.$error.required) && regForm.username.$touched">
             Username must be at least 4 characters long
@@ -15,10 +17,12 @@
           </span>
           <br>
 
-         <input type="text" name="firstName" placeholder="Pick a username"
-          ng-model="reg.user.firstname"
+         <input type="text" name="lastname" placeholder="Pick a username"
+          ng-model="reg.user.lastname"
+           minlength="4"
+          ng-maxlength="10"
           required>
-          {{ reg.user.username }}
+         
           <span
             ng-if="(regForm.username.$error.minlength || regForm.username.$error.required) && regForm.username.$touched">
             Username must be at least 4 characters long
@@ -37,14 +41,22 @@
           <br>
 
         <input type="text" name="phone" placeholder="Phone ###-###-####"
-          ng-model="menu.user.phone"
+          ng-model="reg.user.phone"
           pattern="(\d{3})-(\d{3})-(\d{4})">
           <span ng-if="regForm.phone.$invalid && regForm.phone.$touched">
             Phone must be in the format ###-###-####.
           </span>
           <br>
-        <input type="text" name="menuShortName" placeholder="Menu number">
+          <input type="text" name="mnumber" placeholder="Menu Number"  ng-model="reg.user.number"
+           ng-blur="reg.CheckNumber(reg.user.number);"
+          >
+          <span ng-if="!reg.bnumber && regForm.mnumber.$touched">
+            No such menu number exists
+          </span>
+          <br>
      
+
+        
           <br>
         <button
           ng-disabled="regForm.$invalid"
