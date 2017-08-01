@@ -48,9 +48,9 @@
           </span>
           <br>
           <input type="text" name="mnumber" placeholder="Menu Number"  ng-model="reg.user.number"
-           ng-blur="reg.CheckNumber(reg.user.number);"
+           cus-validator required
           >
-          <span ng-if="!reg.bnumber && regForm.mnumber.$touched">
+          <span ng-show="regForm.mnumber.$error.cusValidator && regForm.mnumber.$touched">
             No such menu number exists
           </span>
           <br>

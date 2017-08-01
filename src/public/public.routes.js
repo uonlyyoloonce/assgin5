@@ -41,7 +41,7 @@ function routeConfig ($stateProvider) {
         }]
       }
     }).state('public.signup',{
-      url:'/menu/signup',
+      url:'/signup',
          templateUrl: 'src/public/menu-signup/menu-signup.html',
           controller: 'MenuSignupController as reg'
          
