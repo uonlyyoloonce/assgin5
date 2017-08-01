@@ -33,6 +33,8 @@ function MenuService($http, ApiPath) {
      
    
       return $http.get(ApiPath + '/menu_items/'+v+'.json').then(function (response) {
+        SavedUser.desc=response.data.description;
+        SavedUser.title=response.data.name;
         return true;
     },function(response){
        return false;
@@ -40,11 +42,13 @@ function MenuService($http, ApiPath) {
   }
   service.SaveUserInfo=function(v)
   {
+
     SavedUser.firstname=v.firstname;
     SavedUser.lastname=v.lastname;
     SavedUser.phone=v.phone;
     SavedUser.email=v.email;
     SavedUser.mnumber=v.mnumber;
+    
     SavedUser.valid=true;
   }
   service.getRegUser=function()
