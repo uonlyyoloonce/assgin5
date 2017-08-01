@@ -8,7 +8,8 @@ angular.module('common')
 MenuService.$inject = ['$http', 'ApiPath'];
 function MenuService($http, ApiPath) {
   var service = this;
-
+  var SavedUser={};
+  SavedUser.valid=false;
   service.getCategories = function () {
     return $http.get(ApiPath + '/categories.json').then(function (response) {
       return response.data;
@@ -37,7 +38,21 @@ function MenuService($http, ApiPath) {
        return false;
     });
   }
-
+  service.SaveUserInfo=function(v)
+  {
+    SavedUser.firstname=v.firstname;
+    SavedUser.lastname=v.lastname;
+    SavedUser.phone=v.phone;
+    SavedUser.email=v.email;
+    SavedUser.mnumber=v.mnumber;
+    SavedUser.valid=true;
+  }
+  service.getRegUser=function()
+  {
+    if(SavedUser.valid)
+     return SavedUser;
+    else return 'undefined';
+  }
 }
 
 

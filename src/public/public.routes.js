@@ -44,8 +44,10 @@ function routeConfig ($stateProvider) {
       url:'/signup',
          templateUrl: 'src/public/menu-signup/menu-signup.html',
           controller: 'MenuSignupController as reg'
-         
-      
+    }).state('public.myinfo',{
+      url:'/myinfo',
+      templateUrl: 'src/public/menu-myinfo/menu-myinfo.html',
+      controller: 'MyInfoController as myinfo'
 
     });
 }

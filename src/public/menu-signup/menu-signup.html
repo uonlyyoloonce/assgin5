@@ -47,10 +47,11 @@
             Phone must be in the format ###-###-####.
           </span>
           <br>
-          <input type="text" name="mnumber" placeholder="Menu Number"  ng-model="reg.user.number"
-           cus-validator required
+
+          <input type="text" name="mnumber" placeholder="Menu Number"  ng-model="reg.user.mnumber"
+           menu-Name required
           >
-          <span ng-show="regForm.mnumber.$error.cusValidator && regForm.mnumber.$touched">
+          <span ng-show="regForm.mnumber.$error.mnumber && regForm.mnumber.$touched">
             No such menu number exists
           </span>
           <br>
@@ -60,10 +61,10 @@
           <br>
         <button
           ng-disabled="regForm.$invalid"
-          ng-click="menu.submit()">Submit</button>
+          ng-click="reg.submit()">Submit</button>
 
-          <div style="margin-top: 10px;">
-            Form valid? {{ regForm.$valid }}
+          <div style="margin-top: 10px;" ng-if='reg.clicked'>
+           Your information has been saved.
           </div>
       </form>
     </fieldset>
